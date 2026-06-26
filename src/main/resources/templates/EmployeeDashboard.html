@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th = "https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>EmployeeHub - Employee Dashboard</title>
+</head>
+<body>
+
+	<h1>Dashboard</h1>
+	<hr>
+	<a th:href = "@{/employee/profile}">My Profile</a> |
+	<a th:href = "@{/employee/attendance}">Mark Attendance</a> |
+	<a th:href = "@{/employee/attendance/history}">My Attendance History</a> |
+	<a th:href = "@{/employee/leave/request}">Leave Request</a> |
+	<a th:href = "@{/employee/leave/list}">My Leave Request List</a>
+	<hr>
+</body>
+</html>

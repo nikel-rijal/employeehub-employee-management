@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th = "https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>EmployeeHub - Employee Attendance History</title>
+</head>
+<body>
+
+	<h1>My Attendance History</h1>
+	<hr>
+	<table width = 100%>
+		<thead>
+			<tr style = "background-color: yellow">
+				<th>Date</th>
+				<th>Entry Time</th>
+				<th>Leave Time</th>
+				<th>Hours</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each = "a : ${alist}" style = "background-color: powderblue">
+				<td th:text = "${a.date}"></td>
+				<td th:text = "${a.entryTime}"></td>
+				<td th:text = "${a.leaveTime}"></td>
+				<td th:text = "${a.hours}"></td>
+				<td th:text = "${a.status.displayName}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

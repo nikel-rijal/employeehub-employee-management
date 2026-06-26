@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th = "https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>EmployeeHub - SignUp</title>
+</head>
+<body>
+
+	<h1>SignUp</h1>
+	<hr>
+	<form th:action="@{/signup}" th:object = "${employee}" method = "post">
+	
+	<p style = "color:red" th:text = "${error}"></p>
+	
+	<label>Firstname</label>
+	<input type = "text" th:field = "*{firstname}" placeholder = "Enter firstname"> 
+	<p th:if = "${#fields.hasErrors('firstname')}" th:errors = "*{firstname}" style = "color:red"></p>
+	<br><br>
+	<label>Lastname</label>
+	<input type = "text" th:field = "*{lastname}" placeholder = "Enter lastname">
+	<p th:if = "${#fields.hasErrors('lastname')}" th:errors = "*{lastname}" style = "color:red"></p>
+	<br><br>
+	<label>Email</label>
+	<input type = "email" th:field = "*{email}" placeholder = "Enter email"> 
+	<p th:if = "${#fields.hasErrors('email')}" th:errors = "*{email}" style = "color:red"></p>
+	<br><br>
+	<label>Password</label>
+	<input type = "password" th:field = "*{password}" placeholder = "Enter password">
+	<p th:if = "${#fields.hasErrors('password')}" th:errors = "*{password}" style = "color:red"></p>
+	<br><br>
+	<label>Address</label>
+	<input type = "text" th:field = "*{address}" placeholder = "Enter address"> 
+	<p th:if = "${#fields.hasErrors('address')}" th:errors = "*{address}" style = "color:red"></p>
+	<br><br>
+	<label>PhoneNumber</label>
+	<input type = "number" th:field = "*{phoneNumber}" placeholder = "Enter phoneNumber"> 
+	<p th:if = "${#fields.hasErrors('phoneNumber')}" th:errors = "*{phoneNumber}" style = "color:red"></p>
+	<br><br>
+	<label>JoinedDate</label>
+	<input type = "date" th:field = "*{joinedDate}" placeholder = "Enter joinedDate"> 
+	<p th:if = "${#fields.hasErrors('joinedDate')}" th:errors = "*{joinedDate}" style = "color:red"></p>
+	<br><br>
+	<label>Department</label>
+	<input type = "text"> <br><br>
+	<button type = "submit">SignUp</button> <br><br>
+	<a th:href = "@{/login}">Login</a>
+	</form>
+	
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th = "https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>EmployeeHub - Employee Attendance</title>
+</head>
+<body>
+
+	<h1>Mark Attendance</h1>
+	<hr>
+	<label>Date</label>
+	<input type = "date" th:value = "${date}" readonly> <br><br>
+	
+	<div th:if = "${attendance == null}">
+		<form th:action="@{/employee/attendance/entry}" method = "post">
+			<button type = "submit">Mark Entry</button>
+		</form>
+	</div>
+	
+	<div th:if = "${attendance != null && attendance.leaveTime == null}">
+		<p>Entry Time: <span th:text = "${attendance.entryTime}"></span></p>
+		<form th:action="@{/employee/attendance/exit}" method = "post">
+			<button type = "submit">Mark Exit</button>
+		</form>
+	</div>
+	
+	<div th:if = "${attendance != null && attendance.leaveTime != null}">
+		<p>Entry Time: <span th:text = "${attendance.entryTime}"></span></p>
+		<p>Exit Time: <span th:text = "${attendance.leaveTime}"></span></p>
+		<p>Attendance completed for today</p>
+	</div>
+	
+</body>
+</html>

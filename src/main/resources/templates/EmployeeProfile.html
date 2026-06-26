@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th = "https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>EmployeeHub - Employee Profile</title>
+</head>
+<body>
+
+	<h1>My Profile</h1>
+	<hr>
+	<form th:action="@{/employee/profile}" method = "post">
+	<label>Firstname</label>
+	<input type = "text" th:value = "${activeEmployee.firstname}" readonly> <br><br>
+	<label>Lastname</label>
+	<input type = "text" th:value = "${activeEmployee.lastname}" readonly> <br><br>
+	<label>Email</label>
+	<input type = "text" th:value = "${activeEmployee.email}" readonly> <br><br>
+	<label>Address</label>
+	<input type = "text" th:value = "${activeEmployee.address}" readonly> <br><br>
+	<label>PhoneNumber</label>
+	<input type = "number" th:value = "${activeEmployee.phoneNumber}" readonly> <br><br>
+	<label>JoinedDate</label>
+	<input type = "email" th:value = "${activeEmployee.joinedDate}" readonly> <br><br>
+	<label>Role</label>
+	<input type = "text" th:value = "${activeEmployee.role.displayName}" readonly> <br><br>
+	<button type = "submit">Back to Dashbaord</button>
+	</form>
+</body>
+</html>

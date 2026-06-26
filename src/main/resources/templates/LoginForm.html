@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th = "https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>EmployeeHub - Login</title>
+</head>
+<body>
+
+	<h1>Login</h1>
+	<hr>
+	
+	<p th:if = "${param.error}" style = "color:red">Invalid email or password!!</p>
+	<p th:if = "${param.logout}" style = "color:green">Logout Successfully!!</p>
+	
+	<form th:action = "@{/login}" method = "post">
+	
+	<p style = "color:green" th:text = "${success}"></p>
+	
+	<label>Email</label>
+	<input type = "email" name = "username" placeholder = "Enter email"> <br><br>
+	<label>Password</label>
+	<input type = "password" name = "password" placeholder = "Enter password"><br><br>
+	<button type = "submit">Login</button> <br><br>
+	<a th:href = "@{/signup}">SignUp</a>
+	</form>
+</body>
+</html>
