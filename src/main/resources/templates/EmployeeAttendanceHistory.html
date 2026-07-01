@@ -23,8 +23,8 @@
 			<tr th:each = "a : ${alist}" style = "background-color: powderblue">
 				<td th:text = "${a.date}"></td>
 				<td th:text = "${a.entryTime}"></td>
-				<td th:text = "${a.leaveTime}"></td>
-				<td th:text = "${a.hours}"></td>
+				<td th:text = "${a.leaveTime != null ? a.leaveTime : '-'}"></td>
+				<td th:text = "${a.hours != null ? a.hours : '-'}"></td>
 				<td th:text = "${a.status.displayName}"></td>
 			</tr>
 		</tbody>

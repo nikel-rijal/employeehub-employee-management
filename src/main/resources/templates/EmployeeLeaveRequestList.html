@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th = "https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>EmployeeHub - Employee Leave Request List</title>
+</head>
+<body>
+
+	<h1>My Leave Request List</h1>
+	<hr>
+	<table width = 100%>
+		<thead>
+			<tr style = "background-color:yellow">
+				<th>Request Date</th>
+				<th>From Date</th>
+				<th>To Date</th>
+				<th>Reason</th>
+				<th>Status</th>
+				<th>ReviewedBy</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each = "l : ${leaveList}" style = "background-color:powderblue">
+				<td th:text = "${l.requestDate}"></td>
+				<td th:text = "${l.fromDate}"></td>
+				<td th:text = "${l.toDate}"></td>
+				<td th:text = "${l.reason}"></td>
+				<td th:text = "${l.status.displayName}"></td>
+				<td th:text = "${l.reviewedBy != null ? l.reviewedBy : '-'}"></td>
+			</tr>
+			<tr th:if = "${#lists.isEmpty(leaveList)}">
+				<td colspan = "6">No leave request found!!</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

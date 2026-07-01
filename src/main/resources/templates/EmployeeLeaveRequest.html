@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>EmployeeHub - Employee Leave Request</title>
+</head>
+<body>
+
+	<h1>Leave Request</h1>
+	<hr>
+	<div th:if="${leaveRequest == null}">
+		<form th:action="@{/employee/leave/request}" th:object = "${leave}" method="post">
+		
+		<p th:if = "${error != null}" th:text = "${error}" style = "color:red"></p>
+		
+			<label>From</label> <input type="date" th:field="*{fromDate}"> 
+			<p th:if = "${#fields.hasErrors('fromDate')}" th:errors = "*{fromDate}" style = "color:red"></p>
+			<br>
+			<br> <label>To</label> <input type="date" th:field ="*{toDate}">
+			<p th:if = "${#fields.hasErrors('toDate')}" th:errors = "*{toDate}" style = "color:red"></p>
+			<br>
+			<br> <label>Reason of Leave</label>
+			<textarea th:field = "*{reason}" rows="4"></textarea>
+			<p th:if = "${#fields.hasErrors('reason')}" th:errors = "*{reason}" style = "color:red"></p>
+			<br>
+			<br>
+			<button type="submit">Request</button>
+		</form>
+	</div>
+	
+	<div th:if="${leaveRequest != null}">
+		<p>Leave requested for today!!</p>
+	</div>
+</body>
+</html>
