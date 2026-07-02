@@ -10,7 +10,8 @@ public interface EmployeeService {
 	void deleteEmployee(Long id);
 	void updateEmployee(Employee employee);
 	Employee findByEmployeeId(Long id);
-	List<Employee> findAllEmployee();
+	List<Employee> findEmployees();
 	Employee findByEmail(String email);
 	void createAdmin(Employee employee);
+	boolean findEmailExistForOtherEmployee(String email, Long id);
 }

@@ -24,7 +24,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public void addEmployee(Employee employee) {
 		
-		employee.setRole(EmployeeRole.EMPLOYEE);
 		employee.setPassword(passwordEncoder.encode(employee.getPassword()));
 		employeeRepo.save(employee);
 		
@@ -49,11 +48,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 		
 		return employeeRepo.findById(id).orElseThrow();
 	}
-
+	
 	@Override
-	public List<Employee> findAllEmployee() {
+	public List<Employee> findEmployees() {
 		
-		return employeeRepo.findAll();
+		return employeeRepo.findByRoleIn(List.of(EmployeeRole.EMPLOYEE, EmployeeRole.MANAGER));
 	}
 
 	@Override
@@ -69,6 +68,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 		employee.setRole(EmployeeRole.ADMIN);
 		
 		employeeRepo.save(employee);
+	}
+
+	@Override
+	public boolean findEmailExistForOtherEmployee(String email, Long id) {
+		
+		return employeeRepo.findByEmailAndIdNot(email, id).isPresent();
 	}
 
 }

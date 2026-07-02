@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th = "https://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>EmployeeHub - AdminDashboard</title>
@@ -8,6 +8,10 @@
 
 	<h1>Admin Dashboard</h1>
 	<hr>
-	<a href = "">Manage Employees</a>
+	<a th:href = "@{/admin/employee}">Manage Employees</a> |
+	<a th:href = "@{/admin/department}">Manage Departments</a> |
+	<a th:href = "@{/admin/attendance/record}">View all Attendance records</a> |
+	<a th:href = "@{/admin/leave/request}">Manage Leave Requests</a>
+	<hr>
 </body>
 </html>

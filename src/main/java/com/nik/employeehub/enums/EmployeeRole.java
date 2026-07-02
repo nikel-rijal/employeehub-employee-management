@@ -8,7 +8,7 @@ public enum EmployeeRole {
 	
 	private final String displayName;
 	
-	private EmployeeRole(String displayName) {
+	EmployeeRole(String displayName) {
 		this.displayName = displayName;
 	}
 	

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th = "https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>EmployeeHub - Employee List</title>
+</head>
+<body>
+
+	<h1>Employee List</h1>
+	<hr>
+	
+	<p th:text = "${success}" style = "color:green"></p>
+	
+	<table width = "100%">
+		<thead>
+			<tr style = "background-color : yellow">
+				<th>Firstname</th>
+				<th>Lastname</th>
+				<th>Email</th>
+				<th>JoinedDate</th>
+				<th>Role</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each = "e : ${elist}" style = "background-color : powderblue">
+				<td th:text = "${e.firstname}"></td>
+				<td th:text = "${e.lastname}"></td>
+				<td th:text = "${e.email}"></td>
+				<td th:text = "${e.joinedDate}"></td>
+				<td th:text = "${e.role.displayName}"></td>
+				<td>
+					<a th:href = "@{/admin/employee/list/view/{id}(id = ${e.id})}">View</a> |
+					<a th:href = "@{/admin/employee/list/edit/{id}(id = ${e.id})}">Edit</a> |
+					<a th:href = "@{/admin/employee/list/delete/{id}(id = ${e.id})}">Delete</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

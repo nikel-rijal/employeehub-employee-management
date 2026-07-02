@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th = "https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>EmployeeHub - Edit Employee</title>
+</head>
+<body>
+
+	<h1>Edit Employee</h1>
+	<hr>
+	<form th:action="@{/admin/employee/list/edit}" th:object = "${employee}" method = "post">
+	
+		<input type = "hidden" th:field = "*{id}">
+	
+		<label>Firstname</label>
+		<input type = "text" th:field = "*{firstname}" placeholder = "Enter firstname"> 
+		<p th:if = "${#fields.hasErrors('firstname')}" th:errors = "*{firstname}" style = "color:red"></p>
+		<br><br>
+		<label>Lastname</label>
+		<input type = "text" th:field = "*{lastname}" placeholder = "Enter lastname"> 
+		<p th:if = "${#fields.hasErrors('lastname')}" th:errors = "*{lastname}" style = "color:red"></p>
+		<br><br>
+		<label>Email</label>
+		<input type = "email" th:field = "*{email}" placeholder = "Enter email"> 
+		<p th:if = "${#fields.hasErrors('email')}" th:errors = "*{email}" style = "color:red"></p>
+		<br><br>
+		<label>Address</label>
+		<input type = "text" th:field = "*{address}" placeholder = "Enter address"> 
+		<p th:if = "${#fields.hasErrors('address')}" th:errors = "*{address}" style = "color:red"></p>
+		<br><br>
+		<label>PhoneNumber</label>
+		<input type = "number" th:field = "*{phoneNumber}" placeholder = "Enter phonenumber"> 
+		<p th:if = "${#fields.hasErrors('phoneNumber')}" th:errors = "*{phoneNumber}" style = "color:red"></p>
+		<br><br>
+		<label>Role</label>
+		<select th:field = "*{role}">
+			<option value = "">--Select role--</option>
+			<option th:each = "r : ${roles}"
+					th:value = "${r}"
+					th:text = "${r.displayName}">
+			</option>
+		</select> 
+		<p th:if = "${#fields.hasErrors('role')}" th:errors = "*{role}" style = "color:red"></p>
+		<br><br>
+		<button type = "submit">Update</button>
+	</form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th = "https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>EmployeeHub - View Employee</title>
+</head>
+<body>
+
+	<h1>Employee Details</h1>
+	<hr>
+	<label>Firstname</label>
+	<input type = "text" th:value = "${employee.firstname}" readonly> <br><br>
+	<label>Lastname</label>
+	<input type = "text" th:value = "${employee.lastname}" readonly> <br><br>
+	<label>Email</label>
+	<input type = "text" th:value = "${employee.email}" readonly> <br><br>
+	<label>Address</label>
+	<input type = "text" th:value = "${employee.address}" readonly> <br><br>
+	<label>PhoneNumber</label>
+	<input type = "number" th:value = "${employee.phoneNumber}" readonly> <br><br>
+	<label>JoinedDate</label>
+	<input type = "text" th:value = "${employee.joinedDate}" readonly> <br><br>
+	<label>Role</label>
+	<input type = "text" th:value = "${employee.role.displayName}" readonly> <br><br>
+	<a th:href = "@{/admin/employee/list}">Back</a>
+</body>
+</html>

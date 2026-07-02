@@ -1,22 +1,17 @@
 package com.nik.employeehub.dto;
 
-import java.time.LocalDate;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
 import com.nik.employeehub.enums.EmployeeRole;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
-public class EmployeeDTO {
-	
+public class EmployeeUpdateDTO {
+
 	private Long id;
 	
 	@NotBlank(message = "Firstname is required!!")
@@ -34,21 +29,13 @@ public class EmployeeDTO {
 	@Pattern(regexp = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$", message = "Invalid email format")
 	private String email;
 	
-	@NotBlank(message = "Password is required!!")
-	@Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$", message = "Password must contain atleast 8 characters, one uppercase letter, one lowercase letter and one number")
-	private String password;
-	
 	@NotBlank(message = "Address is required!!")
 	@Pattern(regexp = "^[A-Za-z0-9\\s,./#-]+$", message = "Address contain invalid characters")
 	private String address;
 	
-	@NotBlank(message = "Phone number is required!!")
+	@NotBlank(message = "Phone Number is required!!")
 	@Pattern(regexp = "^[0-9]+$", message = "Phone number only contain digits")
 	private String phoneNumber;
-	
-	@NotNull(message = "Date is required!!")
-	@PastOrPresent(message = "Date must be in past or present")
-	private LocalDate joinedDate;
 	
 	@NotNull(message = "Role is required!!")
 	private EmployeeRole role;
